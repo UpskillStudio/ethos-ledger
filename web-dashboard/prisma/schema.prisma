@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model UserTwin {
+  id               String   @id @default(uuid())
+  name             String
+  stateOfResidence String
+  filingStatus     String
+  riskTolerance    Int
+  
+  // Relations
+  financialState   FinancialState?
+  lifeEvents       LifeEvent[]
+}
+
+model FinancialState {
+  id                 String   @id @default(uuid())
+  netWorth           Float
+  taxEfficiency      Float
+  portfolioDrift     Float
+  safeWithdrawalRate Float
+  lastReconciledAt   DateTime @default(now())
+
+  userTwinId         String   @unique
+  userTwin           UserTwin @relation(fields: [userTwinId], references: [id], onDelete: Cascade)
+}
+
+model LifeEvent {
+  id          String   @id @default(uuid())
+  type        String
+  title       String
+  date        String
+  impact      String
+  
+  userTwinId  String
+  userTwin    UserTwin @relation(fields: [userTwinId], references: [id], onDelete: Cascade)
+}
