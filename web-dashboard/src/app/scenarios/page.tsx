@@ -1,4 +1,5 @@
 import { ArrowRight, BarChart3, LineChart, Target, Zap } from "lucide-react";
+import Image from "next/image";
 
 export default function ScenariosPage() {
   return (
@@ -74,13 +75,18 @@ export default function ScenariosPage() {
         </div>
       </div>
 
-      <div className="glass-card rounded-2xl p-6 min-h-[400px]">
+      <div className="glass-card rounded-2xl p-6">
         <div className="flex items-center gap-3 mb-6">
           <LineChart className="text-primary w-6 h-6" />
           <h3 className="font-semibold text-lg">Comparative Analysis</h3>
         </div>
-        <div className="w-full h-[300px] flex items-center justify-center border border-dashed border-white/10 rounded-xl bg-white/[0.02]">
-          <span className="text-muted-foreground text-sm">Interactive visualization rendering module...</span>
+        <div className="w-full h-[400px] relative rounded-xl overflow-hidden border border-white/5">
+          <Image 
+            src="/monte_carlo_chart.png"
+            alt="Monte Carlo Simulation Visualization"
+            fill
+            className="object-cover opacity-80 mix-blend-screen"
+          />
         </div>
       </div>
     </div>

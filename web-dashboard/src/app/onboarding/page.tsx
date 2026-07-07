@@ -1,6 +1,21 @@
-import { ShieldCheck, ArrowRight, Lock } from "lucide-react";
+"use client";
+
+import { ShieldCheck, ArrowRight, Lock, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Onboarding() {
+  const [isInitializing, setIsInitializing] = useState(false);
+  const router = useRouter();
+
+  const handleInitialization = () => {
+    setIsInitializing(true);
+    // Simulate twin initialization taking a few seconds
+    setTimeout(() => {
+      router.push("/");
+    }, 2500);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] animate-in fade-in zoom-in duration-700">
       <div className="max-w-xl w-full">
@@ -40,9 +55,22 @@ export default function Onboarding() {
             </div>
           </div>
 
-          <button className="w-full py-4 rounded-2xl bg-foreground text-background font-semibold hover:bg-foreground/90 transition-all flex items-center justify-center gap-2 group">
-            Begin Initialization
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <button 
+            onClick={handleInitialization}
+            disabled={isInitializing}
+            className="w-full py-4 rounded-2xl bg-foreground text-background font-semibold hover:bg-foreground/90 transition-all flex items-center justify-center gap-2 group disabled:opacity-80 disabled:cursor-not-allowed"
+          >
+            {isInitializing ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Initializing Twin...
+              </>
+            ) : (
+              <>
+                Begin Initialization
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </>
+            )}
           </button>
           
           <p className="text-xs text-center text-muted-foreground">

@@ -1,5 +1,6 @@
 import { MetricCard } from "@/components/ui/MetricCard";
 import { Wallet, TrendingUp, PieChart, ShieldAlert } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -63,9 +64,13 @@ export default function Home() {
               <option>Bear Market (Stress Test)</option>
             </select>
           </div>
-          {/* Placeholder for chart */}
-          <div className="w-full h-[300px] flex items-center justify-center border border-dashed border-white/10 rounded-xl bg-white/[0.02]">
-            <span className="text-muted-foreground text-sm">Monte Carlo Simulation Rendered Here</span>
+          <div className="w-full h-[300px] relative rounded-xl overflow-hidden border border-white/5">
+            <Image 
+              src="/monte_carlo_chart.png"
+              alt="Monte Carlo Simulation Visualization"
+              fill
+              className="object-cover opacity-80 mix-blend-screen"
+            />
           </div>
         </div>
 
