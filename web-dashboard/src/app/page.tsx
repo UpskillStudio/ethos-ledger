@@ -69,7 +69,7 @@ export default function Home() {
               src="/monte_carlo_chart.png"
               alt="Monte Carlo Simulation Visualization"
               fill
-              className="object-cover opacity-80 mix-blend-screen"
+              className="object-contain opacity-80 mix-blend-screen p-2"
             />
           </div>
         </div>

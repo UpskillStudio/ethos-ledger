@@ -1,5 +1,6 @@
 import { ArrowRight, BarChart3, LineChart, Target, Zap } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ScenariosPage() {
   return (
@@ -11,14 +12,14 @@ export default function ScenariosPage() {
             Explore what-if projections driven by Monte Carlo simulations.
           </p>
         </div>
-        <button className="px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground transition-colors text-sm font-medium shadow-lg shadow-primary/20 flex items-center gap-2">
+        <Link href="#" className="px-4 py-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground transition-colors text-sm font-medium shadow-lg shadow-primary/20 flex items-center gap-2">
           <Zap className="w-4 h-4" />
           New Simulation
-        </button>
+        </Link>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="glass-card p-6 rounded-2xl group cursor-pointer hover:border-primary/50 transition-all">
+        <Link href="#" className="glass-card p-6 rounded-2xl group cursor-pointer hover:border-primary/50 transition-all block">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -44,9 +45,9 @@ export default function ScenariosPage() {
               <p className="text-2xl font-semibold">$3.8M</p>
             </div>
           </div>
-        </div>
+        </Link>
 
-        <div className="glass-card p-6 rounded-2xl group cursor-pointer hover:border-primary/50 transition-all">
+        <Link href="#" className="glass-card p-6 rounded-2xl group cursor-pointer hover:border-primary/50 transition-all block">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
@@ -72,7 +73,7 @@ export default function ScenariosPage() {
               <p className="text-2xl font-semibold">$4.2M</p>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
 
       <div className="glass-card rounded-2xl p-6">
@@ -80,12 +81,12 @@ export default function ScenariosPage() {
           <LineChart className="text-primary w-6 h-6" />
           <h3 className="font-semibold text-lg">Comparative Analysis</h3>
         </div>
-        <div className="w-full h-[400px] relative rounded-xl overflow-hidden border border-white/5">
+        <div className="w-full h-[400px] relative rounded-xl overflow-hidden border border-white/5 bg-[#1a1c23]">
           <Image 
             src="/monte_carlo_chart.png"
             alt="Monte Carlo Simulation Visualization"
             fill
-            className="object-cover opacity-80 mix-blend-screen"
+            className="object-contain opacity-90 p-4"
           />
         </div>
       </div>
